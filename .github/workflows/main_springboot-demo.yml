@@ -25,7 +25,7 @@ jobs:
         run: mvn clean install
 
       - name: Upload artifact for deployment job
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v3
         with:
           name: java-app
           path: '${{ github.workspace }}/target/*.jar'
@@ -41,16 +41,16 @@ jobs:
 
     steps:
       - name: Download artifact from build job
-        uses: actions/download-artifact@v4
+        uses: actions/download-artifact@v3
         with:
           name: java-app
       
       - name: Login to Azure
         uses: azure/login@v1
         with:
-          client-id: ${{ secrets.AZUREAPPSERVICE_CLIENTID_CF820BD905CC43FF9BE193A8FAE1C404 }}
-          tenant-id: ${{ secrets.AZUREAPPSERVICE_TENANTID_6DE03D45202247C2BDBD1CD62121C2BA }}
-          subscription-id: ${{ secrets.AZUREAPPSERVICE_SUBSCRIPTIONID_4F93704F64EC4012AC8C3D7BCDA0C123 }}
+          client-id: ${{ secrets.AZUREAPPSERVICE_CLIENTID_012BDF3361874F338F40944009C59294 }}
+          tenant-id: ${{ secrets.AZUREAPPSERVICE_TENANTID_DEA7CA74CAE04E84BD67518EF03AE5B9 }}
+          subscription-id: ${{ secrets.AZUREAPPSERVICE_SUBSCRIPTIONID_B8D9F869B3EA4041A7CB78DE839EF404 }}
 
       - name: Deploy to Azure Web App
         id: deploy-to-webapp
